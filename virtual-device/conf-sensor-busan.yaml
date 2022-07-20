@@ -1,0 +1,86 @@
+# ULFPTC, PM10, TEMP, HD, LUX, ULVRY, NOISE, VIBRAT, MXMM_VIBRAT, ARCSR, WD, WS
+LifeDevice:
+  - ULFPTC:
+      Type: Real
+      DataRange : 0 ~ 30000
+  - PM10:
+      Type: Real
+      DataRange : 0 ~ 30000
+  - TEMP:
+      Type: Real
+      DataRange : -40 ~ 125
+  - HD:
+      Type: Real
+      DataRange : 0 ~ 100
+  - LUX:
+      Type: Real
+      DataRange : 0 ~ 120000
+  - ULVRY:
+      Type: Real
+      DataRange : 280 ~ 400
+  - NOISE:
+      Type: Real
+      DataRange : 30 ~ 130
+  - VIBRAT:
+      Type: Real
+      DataRange : -2 ~ 2
+  - MXMM_VIBRAT:
+      Type: Real
+      DataRange : -2 ~ 2
+  - ARCSR:
+      Type: Real
+      DataRange : 300 ~ 1250
+  - WD:
+      Type: Real
+      DataRange : 0 ~ 360
+  - WS:
+      Type: Real
+      DataRange : 0 ~ 75
+
+# CMO, SO2, NO2, NH3, H2S, OZ, BSML, BLCKBLBTP
+EnvDevice:
+  - CMO:
+      Type: Real
+      DataRange : 0 ~ 1000
+  - SO2:
+      Type: Real
+      DataRange : 0 ~ 20
+  - NO2:
+      Type: Real
+      DataRange : 0 ~ 20
+  - NH3:
+      Type: Real
+      DataRange : 0 ~ 100
+  - H2S:
+      Type: Real
+      DataRange : 0 ~ 200
+  - OZ:
+      Type: Real
+      DataRange : 0 ~ 10
+  - BSML:
+      Type: Real
+      DataRange : -50 ~ 100
+  - BLCKBLBTP:
+      Type: Real
+      DataRange : -50 ~ 100
+      
+# SLOPE, RADIAT, FLOOD, WVHGT, TDLVL, RAIN
+DisasterDevice:
+  - SLOPE:
+      Type: Real
+      DataRange : 0 ~ 360
+  - RADIAT:
+      Type: Real
+      DataRange : 0 ~ 3999
+  - FLOOD:
+      Type: Real
+      DataRange : 0 ~ 1000
+  - WVHGT:
+      Type: Real
+      DataRange : 0 ~ 20
+  - TDLVL:
+      Type: Real
+      DataRange : 0 ~ 1000
+  - RAIN:
+      Type: Real
+      DataRange : 0 ~ 100

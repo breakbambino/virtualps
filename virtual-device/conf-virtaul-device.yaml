@@ -1,0 +1,60 @@
+Config:
+  # 실행 Duration
+  # 단위 second 
+  # 1 Hour - 3600, 1 Day - 86400, 
+  # 0 이면 Round 수 만큼 데이터 생성 
+  # 최대 값 18446744073709551615
+  Duration: 600
+
+  # Data생성 회수
+  # PDInterval 시간 간격으로 1회 데이터 생성
+  # 최대 값 18446744073709551615
+  Round: 10000000000
+
+  PAInterval: 1000  # microseconds
+  PUInterval: 1000  # microseconds
+  PDInterval: 1000000  # microseconds
+  PAPrintDetailTimeData: false
+  PDPrintDetailTimeData: false
+  PUPrintDetailTimeData: false
+  
+  DeviceFile: 'conf-area-busan.yaml'
+  SensorFile: 'conf-sensor-busan.yaml'
+  ServiceName: '/busan/rn'
+  #ServiceName: '/data/psdcn/rn'
+
+Logging:
+  Target: ./logs  # dirpath
+  # vBDT : 가상 단말
+  # 600 : 기간(초)
+  # 10000 : 회수
+  # 1ms : 1 ms 간격 PA
+  # 60S :  60s 간격 PD
+  # A16 : 16개 지역
+  # S1 : Sensor 1개
+  # LED : Life, Env, Disaster
+  Prefix: vBDT-600-10000-1ms-60s-A16-S1-LED
+  Console: true
+  File: true
+    
+Publisher:
+  Layer:
+    - Prefix: ${Area}
+#    - Prefix: ${$1-vDBT}
+      Enable: true
+      PrefixRange : 0 ~ 15
+      Layer:
+        - Prefix : ${$1-vBDT}
+          PrefixRange : 0
+          Sequence: 1
+          Layer:
+            - Prefix: ALL
+              LifeDevice: true
+              EnvDevice: true
+              DisasterDevice: true
+PacketOptions:
+    DefaultOptions:
+        Interest:
+            Lifetime : 5000   # ms
+            CanBePrefix: false
+            MustBeFresh: True

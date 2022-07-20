@@ -1,0 +1,43 @@
+Config:
+    Duration: 60
+    StartDelay: 5000000
+    STInterval: 1000  # microsecond, ST Interest 전송 간격
+    STPrintDetailTimeData: false
+    SMPrintDetailTimeData: false
+    SDPrintDetailTimeData: false
+    DeviceFile: 'conf-area-busan.yaml'
+    ServiceName: '/busan/rn'
+    #ServiceName: '/data/ymtech/psdcn/rn'
+
+Logging:
+    Target: ./logs  # dirpath
+    Prefix: SUB-1ms-L1I5-L2I5-L3I18
+    Console: true
+    File: true
+
+Subscriber:
+  Layer:
+    - Prefix: ${Area}
+      PrefixRange : 0 ~ 15
+      Layer:
+        - Prefix : ${$1-vBDT}
+          PrefixRange : 0
+          Layer:
+            - Prefix: ALL
+              Fetch: -1 #지정된 sequence부터 round 반복
+
+PacketOptions:
+    DefaultOptions:
+        Interest:
+            Lifetime : 5000   # ms
+            CanBePrefix: false
+            MustBeFresh: True
+    ST:
+        Interest:
+            Lifetime : 5000   # ms
+    SM:
+        Interest:
+            Lifetime : 5000   # ms
+    SD:
+        Interest:
+            Lifetime : 5000   # ms
