@@ -2482,8 +2482,8 @@ int main(int argc, char *argv[]) {
 		if(0 < gStatPD.m_data) {
 			//int64_t avg = (gStatPD.m_wait.tv_sec*1000000 + gStatPD.m_wait.tv_usec)/gStatPD.m_data;
 			int64_t avg = (diff_pd.tv_sec*1000000 + diff_pd.tv_usec)/gStatPD.m_data;
-			//NDN_LOG_INFO(stringf("     AVG PD: %ld.%06ld", avg/1000000, avg%1000000));
-			NDN_LOG_INFO(stringf("     AVG PD: %ld.%06ld", avg/1000000, (4*avg%1000000)));
+			NDN_LOG_INFO(stringf("     AVG PD: %ld.%06ld", avg/1000000, avg%1000000));
+			//NDN_LOG_INFO(stringf("     AVG PD: %ld.%06ld", avg/1000000, (4*avg%1000000)));
 		} else {
 			NDN_LOG_INFO(stringf("     AVG PD: %s", gStatPD.getWaitTimeString().c_str()));
 		}
@@ -2534,7 +2534,8 @@ int main(int argc, char *argv[]) {
 		NDN_LOG_INFO(stringf("       Time: %ld.%06ld", diff_all.tv_sec, diff_all.tv_usec));
 		int64_t avg = (diff_pd.tv_sec*1000000 + diff_pd.tv_usec)/gStatPD.m_data;
                 NDN_LOG_INFO(stringf("**************************************************************"));
-                NDN_LOG_INFO(stringf(" Average Event Distribution Delay : %ld ms", (4*avg%1000000)/1000));
+                // NDN_LOG_INFO(stringf(" Average Event Distribution Delay : %ld ms", (4*avg%1000000)/1000));
+                NDN_LOG_INFO(stringf(" Average Event Distribution Delay : %ld ms", (avg%1000000)/1000));
                 NDN_LOG_INFO(stringf("**************************************************************")); 
 	} catch (const YAML::Exception &e) {
 		NDN_LOG_ERROR(e.what());
